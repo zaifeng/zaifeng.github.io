@@ -4,27 +4,33 @@
   hm.src = 'https://hm.baidu.com/hm.js?' + '6236a79d50113a791efe1bab0b5fc663';
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
-  })();</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Gitlab使用两则</h1><a id="logo" href="/.">淡忘起初</a><p class="description">I have a dream</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Gitlab使用两则</h1><div class="post-meta">Apr 30, 2020<span> | </span><span class="category"><a href="/categories/git/">git</a></span></div><div class="post-content"><p>提到Git，大家应该会想到<code>Linux</code>,<code>BitMover</code>,<code>BitKeeper</code>等信息吧，他们之间的故事网上版本有点乱，不知道的可以大概了解下。提起他们并不是说谁对谁错，历史的发展就是要新事物代替旧事物，也许在不久的将来Git会被另一个软件所代替。</p>
-<p>目前Git 已然替代SVN，成为目前最流行、最受欢迎的代码管理仓库工具，<br>成为开发必备的技能之一。</p>
-<p><code>GitLab</code>是一个开源的git仓库管理软件，并提供web界面，方便用户管理git仓库。由于其<code>开源</code>特性，而不像<code>Github</code>那样，必须把代码保存在github服务器上，获得好多公司的青睐。</p>
-<p>在实际工作中，经常会遇到下面两个问题</p>
+  })();</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Gitlab使用两则</h1><a id="logo" href="/.">淡忘起初</a><p class="description">I have a dream</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Gitlab使用两则</h1><div class="post-meta">Apr 30, 2020<span> | </span><span class="category"><a href="/categories/git/">git</a></span></div><div class="post-content"><pre><code>提到Git，大家应该会想到`Linux`,`BitMover`,`BitKeeper`等信息吧，他们之间的故事网上版本有点乱，不知道的可以大概了解下。提起他们并不是说谁对谁错，历史的发展就是要新事物代替旧事物，也许在不久的将来Git会被另一个软件所代替。
+
+目前Git 已然替代SVN，成为目前最流行、最受欢迎的代码管理仓库工具，</code></pre><p>成为开发必备的技能之一。</p>
+<p><code>GitLab</code>是一个开源的git仓库管理软件，并提供web界面，方便用户管理git仓库。由于其<code>开源</code>特性，而不像<code>Github</code>那样，必须把代码保存在github服务器上，获得许多公司的青睐。</p>
+<p>在实际工作使用中，经常会遇到以下两个问题</p>
 <ul>
 <li>上线后，导致系统无法正常运行或未达到预期</li>
 <li>上线后，发现某个或几个文件忘记提交</li>
 </ul>
-<p>不管哪种情况发生，轻则要收到用户投诉，造成利益损失，重则对产品口碑产生重要影响</p>
+<p>不管哪种情况发生，上线故障，轻则要收到用户投诉，造成利益损失，重则对产品口碑产生重要影响</p>
 <p>下面说下如何正确处理以上两个问题</p>
-<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>Gitlab 有个分支保护的概念，限制<code>Owner</code>意外的人随意push</p>
+<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>Gitlab 有个<code>分支保护</code>的概念，限制<code>owner</code>以外的人随意<code>merge</code>和<code>push</code></p>
 <ul>
-<li>取消分支保护</li>
-<li>添加分支保护<br>按照以上步骤，继续给相应的分支添加保护</li>
+<li><p>取消分支保护</p>
+</li>
+<li><p>添加分支保护</p>
+</li>
 </ul>
+<blockquote>
+<p>记得代码提交完成，继续让分支受保护</p>
+</blockquote>
 <h2 id="代码回滚操作"><a href="#代码回滚操作" class="headerlink" title="代码回滚操作"></a>代码回滚操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 回滚本地代码至 最新版的上一版(HEAD^:上一版， HEAD^^: 上两版)</span><br><span class="line"># HEAD 也可以用commit id 替换</span><br><span class="line">$ git reset --hard HEAD^</span><br><span class="line"> </span><br><span class="line"># 推送代码至远程master分支</span><br><span class="line">$ git push -f origin master</span><br></pre></td></tr></table></figure>
 
 <p>如果代码回滚后，发现不是本次上线导致的问题怎么办？这是一个悲哀的故事：）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 查看所有提交日志</span><br><span class="line">$ git reflog</span><br><span class="line"># 恢复指定版本</span><br><span class="line">$ git reset --hard &lt;version_id&gt;</span><br><span class="line"> </span><br><span class="line"># 推送代码至远程(强制)</span><br><span class="line">$ git push -f origin master</span><br></pre></td></tr></table></figure>
 
-<h2 id="代码补充"><a href="#代码补充" class="headerlink" title="代码补充"></a>代码补充</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Add 遗漏文件xxx1、xxx2</span><br><span class="line">$ git add xxx1 xxx2</span><br><span class="line"></span><br><span class="line"># --no-edit 懒，不想再加注释了，也可以用-m 重新修改提交说明</span><br><span class="line">$ git commit --amend --no-edit</span><br><span class="line"># 推送到远程代码仓库</span><br><span class="line">$ git push -f &lt;远程仓库名称&gt; &lt;远程分支名称&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="代码补充"><a href="#代码补充" class="headerlink" title="代码补充"></a>代码补充</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Add 遗漏文件xxx1、xxx2</span><br><span class="line">$ git add xxx1 xxx2</span><br><span class="line"></span><br><span class="line"># --no-edit ? 懒！不想再写注释了，也可以用 *-m* 重新修改提交说明</span><br><span class="line">$ git commit --amend --no-edit</span><br><span class="line"># 推送到远程代码仓库</span><br><span class="line">$ git push -f &lt;远程仓库名称&gt; &lt;远程分支名称&gt;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>以上两个操作都使用了<code>-f</code>参数，如不使用有什么问题？</p>
