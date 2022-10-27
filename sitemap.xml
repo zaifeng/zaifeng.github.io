@@ -2,28 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://zaifeng.github.io/tags/debug/</loc>
-    <lastmod>2022-10-27T13:50:37+08:00</lastmod>
+    <loc>http://zaifeng.github.io/categories/</loc>
+    <lastmod>2022-10-27T15:56:58+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/reading/GoWebProgramming/</loc>
+    <lastmod>2022-10-27T15:56:58+08:00</lastmod>
   </url><url>
     <loc>http://zaifeng.github.io/tags/golang/</loc>
+    <lastmod>2022-10-27T15:56:58+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/categories/golang/</loc>
+    <lastmod>2022-10-27T15:56:58+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/reading/</loc>
+    <lastmod>2022-10-27T15:56:58+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/tags/</loc>
+    <lastmod>2022-10-27T15:56:58+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/</loc>
+    <lastmod>2022-10-27T15:56:58+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/post/</loc>
+    <lastmod>2022-10-27T15:02:02+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/tags/redis/</loc>
+    <lastmod>2022-10-27T15:02:02+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/categories/redis/</loc>
+    <lastmod>2022-10-27T15:02:02+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/post/redisnotes/</loc>
+    <lastmod>2022-10-27T15:02:02+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/tags/aboutme/</loc>
+    <lastmod>2022-10-27T14:26:27+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/about/</loc>
+    <lastmod>2022-10-27T14:26:27+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/about/AboutMe/</loc>
+    <lastmod>2022-10-27T14:26:27+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/debt/</loc>
+    <lastmod>2022-10-27T14:18:46+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/debt/TechDebt/</loc>
+    <lastmod>2022-10-27T14:18:46+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/tags/dlv/</loc>
     <lastmod>2022-10-27T13:50:37+08:00</lastmod>
   </url><url>
     <loc>http://zaifeng.github.io/post/GolangDlvDebug/</loc>
     <lastmod>2022-10-27T13:50:37+08:00</lastmod>
   </url><url>
-    <loc>http://zaifeng.github.io/post/</loc>
-    <lastmod>2022-10-27T13:50:37+08:00</lastmod>
-  </url><url>
-    <loc>http://zaifeng.github.io/tags/</loc>
-    <lastmod>2022-10-27T13:50:37+08:00</lastmod>
-  </url><url>
-    <loc>http://zaifeng.github.io/</loc>
-    <lastmod>2022-10-27T13:50:37+08:00</lastmod>
-  </url><url>
     <loc>http://zaifeng.github.io/tags/life/</loc>
     <lastmod>2022-10-27T13:47:05+08:00</lastmod>
   </url><url>
-    <loc>http://zaifeng.github.io/post/ArticleCopy/</loc>
+    <loc>http://zaifeng.github.io/life/</loc>
+    <lastmod>2022-10-27T13:47:05+08:00</lastmod>
+  </url><url>
+    <loc>http://zaifeng.github.io/life/ArticleCopy/</loc>
     <lastmod>2022-10-27T13:47:05+08:00</lastmod>
   </url><url>
     <loc>http://zaifeng.github.io/post/MacVscodeSkill/</loc>
@@ -31,7 +70,5 @@
   </url><url>
     <loc>http://zaifeng.github.io/tags/vscode/</loc>
     <lastmod>2022-10-27T13:35:46+08:00</lastmod>
-  </url><url>
-    <loc>http://zaifeng.github.io/categories/</loc>
   </url>
 </urlset>

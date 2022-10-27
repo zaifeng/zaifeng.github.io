@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Go web编程 | 淡忘起初</title>
+    <meta property="og:title" content="Go web编程 - 淡忘起初">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2022-10-27T15:56:58&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2022-10-27T15:56:58&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,PHP etc.">
+    <meta name="description" content="Go web编程">
+        
+    <meta name="author" content="zaifeng">
+    <meta property="og:url" content="http://zaifeng.github.io/reading/GoWebProgramming/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://zaifeng.github.io">
+                        淡忘起初
+                    </a>
+                
+                <p class="description">I have a beautiful dream</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://zaifeng.github.io">Home</a>
+                    
+                    <a  href="http://zaifeng.github.io/reading/" title="阅读">阅读</a>
+                    
+                    <a  href="http://zaifeng.github.io/life/" title="生活点滴">生活点滴</a>
+                    
+                    <a  href="http://zaifeng.github.io/debt/TechDebt/" title="技术债">技术债</a>
+                    
+                    <a  href="http://zaifeng.github.io/about/AboutMe" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Go web编程</h1>
+        </header>
+        
+  <time datetime="2022-10-27T07:56:58Z" class="post-meta meta-date dt-published">
+    2022-10-27
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/golang' target="_blank">golang</a>
+  
+</div>
+
+
+        
+        
+        <div class="post-content">
+            <h2 id="go与web应用">Go与web应用</h2>
+<h2 id="chitchat论坛">ChitChat论坛</h2>
+<h2 id="接收请求">接收请求</h2>
+<h2 id="处理请求">处理请求</h2>
+<h2 id="内容展示">内容展示</h2>
+<h2 id="存储数据">存储数据</h2>
+<h2 id="go-web-服务">Go web 服务</h2>
+<h2 id="应用测试">应用测试</h2>
+<h2 id="发挥go的并发优势">发挥Go的并发优势</h2>
+<h2 id="go的部署">Go的部署</h2>
+
+        </div>
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/golang' target="_blank">golang</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="http://zaifeng.github.io">淡忘起初 By zaifeng</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="#" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='http://zaifeng.github.io/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://zaifeng.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://zaifeng.github.io/post/redisnotes/" title="Redis笔记" target="_blank">Redis笔记</a>
+    </li>
+    
+    <li>
+        <a href="http://zaifeng.github.io/post/GolangDlvDebug/" title="Golang代码调试" target="_blank">Golang代码调试</a>
+    </li>
+    
+    <li>
+        <a href="http://zaifeng.github.io/post/MacVscodeSkill/" title="Mac下vscode技巧" target="_blank">Mac下vscode技巧</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="http://zaifeng.github.io/categories/golang/">golang (2)</a></li>
+    
+    <li><a href="http://zaifeng.github.io/categories/redis/">redis (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://zaifeng.github.io/tags/aboutme/">aboutme</a>
+    
+    <a href="http://zaifeng.github.io/tags/dlv/">dlv</a>
+    
+    <a href="http://zaifeng.github.io/tags/golang/">golang</a>
+    
+    <a href="http://zaifeng.github.io/tags/life/">life</a>
+    
+    <a href="http://zaifeng.github.io/tags/redis/">redis</a>
+    
+    <a href="http://zaifeng.github.io/tags/vscode/">vscode</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://juejin.cn/" title="掘金">掘金</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://geektutu.com/" title="极客兔兔">极客兔兔</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="http://zaifeng.github.io/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -6,27 +6,27 @@
     <description>Recent content in Posts on 淡忘起初</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 27 Oct 2022 13:50:37 +0800</lastBuildDate><atom:link href="http://zaifeng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Oct 2022 15:02:02 +0800</lastBuildDate><atom:link href="http://zaifeng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>GolangDlvDebug</title>
+      <title>Redis笔记</title>
+      <link>http://zaifeng.github.io/post/redisnotes/</link>
+      <pubDate>Thu, 27 Oct 2022 15:02:02 +0800</pubDate>
+      
+      <guid>http://zaifeng.github.io/post/redisnotes/</guid>
+      <description>Redis过期删除策略 定期删除，每100ms随机抽取过期key删除 惰性删除，client端查询，redis发现过期，立即删除 内存淘汰策略， noeviction：返回错误，不会删除任何键值 allkeys-lru：使用LRU算法删除最近最少使用的键值 volatile-lru：使用LR</description>
+    </item>
+    
+    <item>
+      <title>Golang代码调试</title>
       <link>http://zaifeng.github.io/post/GolangDlvDebug/</link>
       <pubDate>Thu, 27 Oct 2022 13:50:37 +0800</pubDate>
       
       <guid>http://zaifeng.github.io/post/GolangDlvDebug/</guid>
-      <description>工欲善其事，必先利其器，程序调试是每个合格的程序员必备的技能，调试是研发人员排查、定位、解决问题的必备武器 本地调试： 1 2 3 4 5 6 7 { &amp;#34;name&amp;#34;: &amp;#34;Local&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;go&amp;#34;, &amp;#34;request&amp;#34;: &amp;#34;launch&amp;#34;, &amp;#34;mode&amp;#34;: &amp;#34;auto&amp;#34;, &amp;#34;program&amp;#34;: &amp;#34;${fileDirname}&amp;#34;, } 远程调试： The Go extension has been communicating with Delve through a custom debug adapter program (legacy mode). As the new Delve&amp;rsquo;s native debug adapter implementation has become available (since Delve v1.6.1), the Go extension is transitioning to deprecate the legacy debug adapter in favor of direct communication with Delve via DAP. 翻译过来就是：从</description>
+      <description>工欲善其事，必先利其器。 程序调试是每个合格的程序员必备的技能，是排查、定位、解决问题的必备技能之一 这里主要描述在vscode 环境下，如何配置dlv进行本地 or 远程调试 本地调试： 1 2 3 4 5 6 7 { &amp;#34;name&amp;#34;: &amp;#34;Local&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;go&amp;#34;, &amp;#34;request&amp;#34;: &amp;#34;launch&amp;#34;, &amp;#34;mode&amp;#34;: &amp;#34;auto&amp;#34;, &amp;#34;program&amp;#34;: &amp;#34;${fileDirname}&amp;#34;, } 远程调试： The Go extension has been communicating with Delve through a custom debug adapter program (legacy mode). As the new Delve&amp;rsquo;s native debug adapter implementation has become available (since Delve</description>
     </item>
     
     <item>
-      <title>打工不要入戏太深</title>
-      <link>http://zaifeng.github.io/post/ArticleCopy/</link>
-      <pubDate>Thu, 27 Oct 2022 13:47:05 +0800</pubDate>
-      
-      <guid>http://zaifeng.github.io/post/ArticleCopy/</guid>
-      <description>一个人的生活中，会扮演多个角色。并且这些角色是会随时间的发展，新增、变化和被替代。在人生的这部大戏中，你我皆是戏子也是观众 在职场里，你以为你拥有的权利、职责、地位，都不属于你，你从来都没有真正的拥有他们，这些都是你的幻觉，因为离开了这个岗位，这些通通烟消云散。你唯一能拥有并且专注</description>
-    </item>
-    
-    <item>
-      <title>MacVscodeSkill</title>
+      <title>Mac下vscode技巧</title>
       <link>http://zaifeng.github.io/post/MacVscodeSkill/</link>
       <pubDate>Thu, 27 Oct 2022 13:35:46 +0800</pubDate>
       
