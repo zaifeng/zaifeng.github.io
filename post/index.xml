@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>淡忘起初</title>
-    <link>http://zaifeng.github.io/</link>
-    <description>Recent content on 淡忘起初</description>
+    <title>Posts on 淡忘起初</title>
+    <link>http://zaifeng.github.io/post/</link>
+    <description>Recent content in Posts on 淡忘起初</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 27 Oct 2022 13:50:37 +0800</lastBuildDate><atom:link href="http://zaifeng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Oct 2022 13:50:37 +0800</lastBuildDate><atom:link href="http://zaifeng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GolangDlvDebug</title>
       <link>http://zaifeng.github.io/post/GolangDlvDebug/</link>
