@@ -49,7 +49,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="http://zaifeng.github.io">Home</a>
+                    <a class="current" href="http://zaifeng.github.io">Home</a>
                     
                     <a  href="http://zaifeng.github.io/tools/" title="工具">工具</a>
                     
@@ -69,7 +69,64 @@
 
                 <div class="col-8" id="main">
                     
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">打工不要入戏太深</h1>
+        </header>
+        
+  <time datetime="2022-10-27T05:47:05Z" class="post-meta meta-date dt-published">
+    2022-10-27
+  </time>
+
+
+
+        
+        
+        <div class="post-content">
+            <ul>
+<li>一个人的生活中，会扮演多个角色。并且这些角色是会随时间的发展，新增、变化和被替代。在人生的这部大戏中，你我皆是戏子也是观众</li>
+<li>在职场里，你以为你拥有的权利、职责、地位，都不属于你，你从来都没有真正的拥有他们，这些都是你的幻觉，因为离开了这个岗位，这些通通烟消云散。你唯一能拥有并且专注的，就是自己换了任何一份工作都能用上的一技之长。</li>
+<li>所有上级对你的期待也不是真的，他们只是以此为由压榨你，从你身上捞取能拿去汇报的东西</li>
+<li>在职场里，我们所要扮演的角色，就是拿钱办事，做什么事不重要，有杂事破事很正常，因为这也是你工作的一部分，让你的领导OK就可以，但无需表现的非常棒，不然会被动付出特别多。要把精力放在探索自己更多的可能性上。</li>
+<li>不要吧自己的命运和心思和业务挂在一起，业务没了你也正常运转，甚至连领导也不是很关心这个业务好不好，请收起你那毫无用处的责任心</li>
+<li>不要对任何人，包邮任何到的洁癖的期望，这个世界上，每个灵魂都是半人半鬼，凑太近了，谁也没法看！时间万物皆可治愈，唯独你不肯放过自己</li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
 <div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/MacVscodeSkill/">MacVscodeSkill</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/life' target="_blank">life</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
     
 
 </div>
@@ -108,6 +165,80 @@
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 
 
 
@@ -129,6 +260,18 @@
         <h3 class="widget-title">Latest articles</h3>
 <ul class="widget-list">
     
+    <li>
+        <a href="http://zaifeng.github.io/post/GolangDlvDebug/" title="GolangDlvDebug" target="_blank">GolangDlvDebug</a>
+    </li>
+    
+    <li>
+        <a href="http://zaifeng.github.io/post/ArticleCopy/" title="打工不要入戏太深" target="_blank">打工不要入戏太深</a>
+    </li>
+    
+    <li>
+        <a href="http://zaifeng.github.io/post/MacVscodeSkill/" title="MacVscodeSkill" target="_blank">MacVscodeSkill</a>
+    </li>
+    
 </ul>
     </section>
 
@@ -148,6 +291,10 @@
     <a href="http://zaifeng.github.io/tags/debug/">debug</a>
     
     <a href="http://zaifeng.github.io/tags/golang/">golang</a>
+    
+    <a href="http://zaifeng.github.io/tags/life/">life</a>
+    
+    <a href="http://zaifeng.github.io/tags/vscode/">vscode</a>
     
 </div>
     </section>
