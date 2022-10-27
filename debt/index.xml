@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Debts on 淡忘起初</title>
-    <link>http://zaifeng.github.io/debt/</link>
+    <link>https://iforget.top/debt/</link>
     <description>Recent content in Debts on 淡忘起初</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 27 Oct 2022 14:18:46 +0800</lastBuildDate><atom:link href="http://zaifeng.github.io/debt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Oct 2022 14:18:46 +0800</lastBuildDate><atom:link href="https://iforget.top/debt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>技术债</title>
-      <link>http://zaifeng.github.io/debt/TechDebt/</link>
+      <link>https://iforget.top/debt/TechDebt/</link>
       <pubDate>Thu, 27 Oct 2022 14:18:46 +0800</pubDate>
       
-      <guid>http://zaifeng.github.io/debt/TechDebt/</guid>
+      <guid>https://iforget.top/debt/TechDebt/</guid>
       <description>计算机基础 Gin源码 Kafka Consul 微服务 go-micro gRPC 计算机网络 操作系统 阅读 架构师修炼之道 计算之魂 代码随想录</description>
     </item>
     

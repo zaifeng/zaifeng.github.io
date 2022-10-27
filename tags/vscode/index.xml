@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>vscode on 淡忘起初</title>
-    <link>http://zaifeng.github.io/tags/vscode/</link>
+    <link>https://iforget.top/tags/vscode/</link>
     <description>Recent content in vscode on 淡忘起初</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 27 Oct 2022 13:35:46 +0800</lastBuildDate><atom:link href="http://zaifeng.github.io/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Oct 2022 13:35:46 +0800</lastBuildDate><atom:link href="https://iforget.top/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac下vscode技巧</title>
-      <link>http://zaifeng.github.io/post/MacVscodeSkill/</link>
+      <link>https://iforget.top/post/MacVscodeSkill/</link>
       <pubDate>Thu, 27 Oct 2022 13:35:46 +0800</pubDate>
       
-      <guid>http://zaifeng.github.io/post/MacVscodeSkill/</guid>
+      <guid>https://iforget.top/post/MacVscodeSkill/</guid>
       <description>在MacOS环境下 批量修改变量名 选中要修改的变量名称，然后按cmd+shift+L 选中要修改的变量名称，然后按F2 先选中变量名，然后按cmd+d，依次选中下个变量名 Monterey 中仅第二种方法有效（可能与某软件热键冲突了） 批量注释 选中内容后按cmd+/，多行注释和取消多行注释 当光标放在某一行</description>
     </item>
     
