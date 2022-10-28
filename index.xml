@@ -6,7 +6,16 @@
     <description>Recent content on 淡忘起初</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 27 Oct 2022 15:56:58 +0800</lastBuildDate><atom:link href="https://iforget.top/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Oct 2022 22:29:23 +0800</lastBuildDate><atom:link href="https://iforget.top/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker 命名卷使用</title>
+      <link>https://iforget.top/post/dockernotes/</link>
+      <pubDate>Fri, 28 Oct 2022 22:29:23 +0800</pubDate>
+      
+      <guid>https://iforget.top/post/dockernotes/</guid>
+      <description>在 Docker 中使用命名卷 命名卷与匿名卷非常相似，不同之处在于可以使用其名称引用命名卷。 创建命名卷 $ docker volume create &amp;lt;volume name&amp;gt; 例如，创建一个名为 notes-data 的卷，可以执行以下命令： $ docker volume create notes-data # notes-data $ docker volume ls # DRIVER VOLUME NAME # local notes-data 查看命名卷信息 1 2 3 4 5 6 7 8 9 10 11 12 $ docker volume inspect &amp;lt;volume identifier&amp;gt; [ { &amp;#34;CreatedAt&amp;#34;: &amp;#34;2022-10-28T14:21:02+08:00&amp;#34;, &amp;#34;Driver&amp;#34;: &amp;#34;local&amp;#34;, &amp;#34;Labels&amp;#34;: {}, &amp;#34;Mountpoint&amp;#34;: &amp;#34;/var/lib/docker/volumes/mysql-master-slave/_data&amp;#34;, &amp;#34;Name&amp;#34;: &amp;#34;mysql-master-slave&amp;#34;, &amp;#34;Options&amp;#34;: {}, &amp;#34;Scope&amp;#34;: &amp;#34;local&amp;#34; } ] notes-d</description>
+    </item>
+    
     <item>
       <title>Go web编程</title>
       <link>https://iforget.top/reading/GoWebProgramming/</link>
