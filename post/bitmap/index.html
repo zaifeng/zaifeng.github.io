@@ -1,0 +1,138 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=referrer content="no-referrer-when-downgrade"><title>Golang实现Bitmap | 淡忘起初</title><meta property="og:title" content="Golang实现Bitmap - 淡忘起初"><meta property="og:type" content="article"><meta property="article:published_time" content="2022-11-08T20:41:40+08:00"><meta property="article:modified_time" content="2022-11-08T20:41:40+08:00"><meta name=Keywords content="golang,go语言,go学习笔记,PHP etc."><meta name=description content="Golang实现Bitmap"><meta name=author content="zaifeng"><meta property="og:url" content="https://iforget.top/post/bitmap/"><link rel="shortcut icon" href=/favicon.ico type=image/x-icon><link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=/css/style.css><script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js></script></head><body><header id=header class=clearfix><div class=container><div class=col-group><div class=site-name><a id=logo href=https://iforget.top>淡忘起初</a><p class=description>I have a beautiful dream</p></div><div><nav id=nav-menu class=clearfix><a class=current href=https://iforget.top>首页</a>
+<a href=https://iforget.top/reading/ title=阅读笔记>阅读笔记</a>
+<a href=https://iforget.top/life/ title=生活点滴>生活点滴</a>
+<a href=https://iforget.top/archives/ title=归档>归档</a>
+<a href=https://iforget.top/about/ title=关于>关于</a></nav></div></div></div></header><div id=body><div class=container><div class=col-group><div class=col-8 id=main><div class=res-cons><article class=post><header><h1 class=post-title>Golang实现Bitmap</h1></header><time datetime=2022-11-08T12:41:40Z class="post-meta meta-date dt-published">2022年11月8日</time><div class="post-meta meta-category"><span>&nbsp;|</span>
+<a href=/categories/golang target=_blank>golang</a></div><div class=post-meta><span id=busuanzi_container_page_pv>&nbsp;|
+<span id=busuanzi_value_page_pv></span> <span>阅读</span></span></div><div class=post-content><h2 id=bitmap介绍>BitMap介绍</h2><p>BitMap可以理解为通过一个bit数组来存储特定数据的一种数据结构。BitMap常用于对大量整形数据做去重和查询。
+在这类查找中，我们可以通过map数据结构进行查找。但如果数据量比较大map数据结构将会大量占用内存。
+BitMap用一个比特位来映射某个元素的状态，所以这种数据结构是非常节省存储空间的。</p><h3 id=应用场景>应用场景</h3><ul><li><p>数据去重
+BitMap可用于数据的快速查找，例如 查询某个数字 是否在40亿不重复数字中。</p></li><li><p>快速排序
+BitMap由于其本身的有序性和唯一性，可以实现快速排序：将其加入bitmap中，然后再遍历获取出来，从而得到排序的结果。</p></li></ul><p>如何判断数字在bit数组的位置在后面的代码中，</p><p>我们使用[]byte来存储bits数据，由于一个byte有8个二进制位。因此：</p><p>数字/8 = 数字在字节数组中的位置 => row</p><p>数字%8 = 数字在当前字节中的位置 => col</p><h3 id=设置数据到bitmap>设置数据到bitmap</h3><p>将1左移col位，然后和以前的数据做|运算，这样就可以将col位置的bit替换成1了。</p><h3 id=从bitmap清除数据>从bitmap清除数据</h3><p>将1左移col位，然后对取反，再与当前值做&，这样就可以将col位置的bit替换成0了。</p><h3 id=判断数字是否在bitmap中>判断数字是否在bitmap中</h3><p>将1左移col位，然后和以前的数据做&运算，若该字节的值!=0，则说明该位置是1，则数据在bit数组中，否则数据不在bit数组中。</p><div class=highlight><div style=color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#ffb8d1>package</span> bitmap
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ffb8d1>import</span> <span style=color:#1bc5e0>&#34;fmt&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#c2ffdf>type</span> BitMap <span style=color:#c2ffdf>struct</span> {
+</span></span><span style=display:flex><span>	bits []<span style=color:#c2ffdf>byte</span>
+</span></span><span style=display:flex><span>	max  <span style=color:#c2ffdf>uint</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#c2ffdf>func</span> <span style=color:#ceb1ff>NewBitMap</span>(max <span style=color:#c2ffdf>uint</span>) <span style=color:#ffb8d1>*</span>BitMap {
+</span></span><span style=display:flex><span>	capacity <span style=color:#ffb8d1>:=</span> max<span style=color:#ffb8d1>/</span><span style=color:#c5a3ff>8</span> <span style=color:#ffb8d1>+</span> <span style=color:#c5a3ff>1</span>
+</span></span><span style=display:flex><span>	<span style=color:#c2ffdf>return</span> <span style=color:#ffb8d1>&amp;</span>BitMap{bits: make([]<span style=color:#c2ffdf>byte</span>, capacity), max: max}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#c2ffdf>func</span> (bm <span style=color:#ffb8d1>*</span>BitMap) <span style=color:#ceb1ff>Set</span>(num <span style=color:#c2ffdf>uint</span>) <span style=color:#c2ffdf>error</span> {
+</span></span><span style=display:flex><span>	<span style=color:#c2ffdf>if</span> num &gt; bm.max {
+</span></span><span style=display:flex><span>		<span style=color:#c2ffdf>return</span> fmt.<span style=color:#ceb1ff>Errorf</span>(<span style=color:#1bc5e0>&#34;%d beyond max %d&#34;</span>, num, bm.max)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	bm.bits[num<span style=color:#ffb8d1>/</span><span style=color:#c5a3ff>8</span>] <span style=color:#ffb8d1>|=</span> (<span style=color:#c5a3ff>1</span> <span style=color:#ffb8d1>&lt;&lt;</span> num<span style=color:#ffb8d1>%</span><span style=color:#c5a3ff>8</span>)
+</span></span><span style=display:flex><span>	<span style=color:#c2ffdf>return</span> <span style=color:#c2ffdf>nil</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#c2ffdf>func</span> (bm <span style=color:#ffb8d1>*</span>BitMap) <span style=color:#ceb1ff>IsExist</span>(num <span style=color:#c2ffdf>uint</span>) (<span style=color:#c2ffdf>bool</span>, <span style=color:#c2ffdf>error</span>) {
+</span></span><span style=display:flex><span>	<span style=color:#c2ffdf>if</span> num &gt; bm.max {
+</span></span><span style=display:flex><span>		<span style=color:#c2ffdf>return</span> <span style=color:#c2ffdf>false</span>, fmt.<span style=color:#ceb1ff>Errorf</span>(<span style=color:#1bc5e0>&#34;%d beyond max %d&#34;</span>, num, bm.max)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#c2ffdf>return</span> bm.bits[num<span style=color:#ffb8d1>/</span><span style=color:#c5a3ff>8</span>]<span style=color:#ffb8d1>&amp;</span>(<span style=color:#c5a3ff>1</span><span style=color:#ffb8d1>&lt;&lt;</span>(num<span style=color:#ffb8d1>%</span><span style=color:#c5a3ff>8</span>)) <span style=color:#ffb8d1>!=</span> <span style=color:#c5a3ff>0</span>, <span style=color:#c2ffdf>nil</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#c2ffdf>func</span> (bm <span style=color:#ffb8d1>*</span>BitMap) <span style=color:#ceb1ff>Unset</span>(num <span style=color:#c2ffdf>uint</span>) <span style=color:#c2ffdf>error</span> {
+</span></span><span style=display:flex><span>	<span style=color:#c2ffdf>if</span> num &gt; bm.max {
+</span></span><span style=display:flex><span>		<span style=color:#c2ffdf>return</span> fmt.<span style=color:#ceb1ff>Errorf</span>(<span style=color:#1bc5e0>&#34;%d beyond max %d&#34;</span>, num, bm.max)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	bm.bits[num<span style=color:#ffb8d1>/</span><span style=color:#c5a3ff>8</span>] <span style=color:#ffb8d1>&amp;=</span> ^(<span style=color:#c5a3ff>1</span> <span style=color:#ffb8d1>&lt;&lt;</span> (num <span style=color:#ffb8d1>%</span> <span style=color:#c5a3ff>8</span>))
+</span></span><span style=display:flex><span>	<span style=color:#c2ffdf>return</span> <span style=color:#c2ffdf>nil</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#c2ffdf>func</span> (bm BitMap) <span style=color:#ceb1ff>String</span>() <span style=color:#c2ffdf>string</span> {
+</span></span><span style=display:flex><span>	str <span style=color:#ffb8d1>:=</span> <span style=color:#1bc5e0>&#34;&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#c2ffdf>for</span> i <span style=color:#ffb8d1>:=</span> len(bm.bits) <span style=color:#ffb8d1>-</span> <span style=color:#c5a3ff>1</span>; i <span style=color:#ffb8d1>&gt;=</span> <span style=color:#c5a3ff>0</span>; i<span style=color:#ffb8d1>--</span> {
+</span></span><span style=display:flex><span>		str <span style=color:#ffb8d1>+=</span> fmt.<span style=color:#ceb1ff>Sprintf</span>(<span style=color:#1bc5e0>&#34;%08b &#34;</span>, bm.bits[i])
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#c2ffdf>return</span> str
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>测试代码</p><div class=highlight><div style=color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#c2ffdf>func</span> <span style=color:#ceb1ff>TestBitMap</span>(t <span style=color:#ffb8d1>*</span>testing.T) {
+</span></span><span style=display:flex><span>	bm <span style=color:#ffb8d1>:=</span> <span style=color:#ceb1ff>NewBitMap</span>(<span style=color:#c5a3ff>23</span>)
+</span></span><span style=display:flex><span>	bm.<span style=color:#ceb1ff>Set</span>(<span style=color:#c5a3ff>15</span>)
+</span></span><span style=display:flex><span>	bm.<span style=color:#ceb1ff>Set</span>(<span style=color:#c5a3ff>50</span>)  <span style=color:#b0bec5>// 超出范围，操作失败
+</span></span></span><span style=display:flex><span><span style=color:#b0bec5></span>	fmt.<span style=color:#ceb1ff>Println</span>(bm)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>输出</p><div class=highlight><div style=color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#ffb8d1>==</span>= RUN   TestBitMap
+</span></span><span style=display:flex><span><span style=color:#c5a3ff>00000000</span> <span style=color:#c5a3ff>10000000</span> <span style=color:#c5a3ff>00000000</span>
+</span></span><span style=display:flex><span><span style=color:#ffb8d1>---</span> PASS: <span style=color:#ceb1ff>TestBitMap</span> (<span style=color:#c5a3ff>0.00</span>s)
+</span></span><span style=display:flex><span>PASS
+</span></span><span style=display:flex><span>ok      practise<span style=color:#ffb8d1>/</span>bitmap <span style=color:#c5a3ff>0.005</span>s
+</span></span></code></pre></td></tr></table></div></div></div><div class="post-meta meta-tags"><ul class=clearfix><li><a href=/tags/bitmap target=_blank>bitmap</a></li><li><a href=/tags/golang target=_blank>golang</a></li></ul></div></article><div class="post bg-white"><script src=https://utteranc.es/client.js repo=zaifeng/zaifeng.github.io issue-term=url theme=github-light crossorigin=anonymous async></script></div></div><footer id=footer><div>&copy; 2022 <a href=https://iforget.top>淡忘起初 By zaifeng</a></div></footer><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[["$","$"]],processEscapes:!0}}</script><script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<a id=rocket href=#top></a>
+<script type=text/javascript src='/js/totop.js?v=0.0.0' async></script><style type=text/css>div.highlight{position:relative;margin:1em 0}.copy-code{display:none;position:absolute;top:4px;right:4px;color:rgba(255,255,255,.8);background:rgba(78,78,78,.8);border-radius:var(--radius);padding:0 5px;font:inherit;user-select:none;cursor:pointer;border:0;--radius:8px}div.highlight:hover .copy-code,pre:hover .copy-code{display:block}</style><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script><script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async></script></div><div id=secondary><section class=widget><form id=search action=https://iforget.top/search method=get accept-charset=utf-8 target=_blank _lpchecked=1><input type=text name=q maxlength=20 placeholder=Search>
+<input type=hidden name=sitesearch value=https://iforget.top>
+<button type=submit class="submit icon-search"></button></form></section><section class=widget><h3 class=widget-title>最近文章</h3><ul class=widget-list><li><a href=https://iforget.top/post/bitmap/ title=Golang实现Bitmap>Golang实现Bitmap</a></li><li><a href=https://iforget.top/post/linuxcmd/ title=Linux减号(-)用途>Linux减号(-)用途</a></li><li><a href=https://iforget.top/post/git-stash/ title="Git Stash">Git Stash</a></li><li><a href=https://iforget.top/post/redis-exception/ title=Redis异常处理>Redis异常处理</a></li><li><a href=https://iforget.top/post/dockerfile/ title=Dockerfile>Dockerfile</a></li><li><a href=https://iforget.top/post/docker-volumes/ title="Docker 命名卷使用">Docker 命名卷使用</a></li><li><a href=https://iforget.top/post/redis-notes/ title=Redis笔记>Redis笔记</a></li><li><a href=https://iforget.top/post/go-dlv-debug/ title=Golang代码调试>Golang代码调试</a></li><li><a href=https://iforget.top/post/vscode-skill/ title=Mac下vscode技巧>Mac下vscode技巧</a></li></ul></section><section class=widget><h3 class=widget-title><a href=/categories/>分类</a></h3><ul class=widget-list><li><a href=https://iforget.top/categories/docker/>docker (1)</a></li><li><a href=https://iforget.top/categories/git/>git (1)</a></li><li><a href=https://iforget.top/categories/golang/>golang (3)</a></li><li><a href=https://iforget.top/categories/linux/>linux (1)</a></li><li><a href=https://iforget.top/categories/redis/>redis (1)</a></li><li><a href=https://iforget.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/>设计模式 (1)</a></li></ul></section><section class=widget><h3 class=widget-title><a href=/tags/>标签</a></h3><div class=tagcloud><a href=https://iforget.top/tags/Dockerfile/>Dockerfile</a>
+<a href=https://iforget.top/tags/bitmap/>bitmap</a>
+<a href=https://iforget.top/tags/dlv/>dlv</a>
+<a href=https://iforget.top/tags/docker/>docker</a>
+<a href=https://iforget.top/tags/git/>git</a>
+<a href=https://iforget.top/tags/golang/>golang</a>
+<a href=https://iforget.top/tags/life/>life</a>
+<a href=https://iforget.top/tags/linux/>linux</a>
+<a href=https://iforget.top/tags/redis/>redis</a>
+<a href=https://iforget.top/tags/stash/>stash</a>
+<a href=https://iforget.top/tags/volume/>volume</a>
+<a href=https://iforget.top/tags/vscode/>vscode</a>
+<a href=https://iforget.top/tags/%E8%A7%81%E8%AF%86/>见识</a>
+<a href=https://iforget.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/>设计模式</a></div></section><section class=widget><h3 class=widget-title>友情链接</h3><ul class=widget-list><li><a target=_blank href=https://geektutu.com/ title=极客兔兔>极客兔兔</a></li><li><a target=_blank href=http://www.yuan316.com/ title=YUAN>YUAN</a></li></ul></section></div></div></div></div></body></html>
