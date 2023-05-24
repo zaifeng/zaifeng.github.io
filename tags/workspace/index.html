@@ -1,9 +1,10 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=referrer content="no-referrer-when-downgrade"><title>数据库 | 淡忘起初</title><meta property="og:title" content="数据库 - 淡忘起初"><meta property="og:type" content="article"><meta name=Keywords content="golang,go语言,go学习笔记,PHP etc."><meta name=description content="数据库"><meta name=author content="zaifeng"><meta property="og:url" content="https://iforget.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><link rel="shortcut icon" href=/favicon.ico type=image/x-icon><link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=/css/style.css><link rel=alternate type=application/rss+xml href=https://iforget.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml title=淡忘起初><script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js></script></head><body><header id=header class=clearfix><div class=container><div class=col-group><div class=site-name><a id=logo href=https://iforget.top>淡忘起初</a><p class=description>I have a beautiful dream</p></div><div><nav id=nav-menu class=clearfix><a href=https://iforget.top>首页</a>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=referrer content="no-referrer-when-downgrade"><title>workspace | 淡忘起初</title><meta property="og:title" content="workspace - 淡忘起初"><meta property="og:type" content="article"><meta name=Keywords content="golang,go语言,go学习笔记,PHP etc."><meta name=description content="workspace"><meta name=author content="zaifeng"><meta property="og:url" content="https://iforget.top/tags/workspace/"><link rel="shortcut icon" href=/favicon.ico type=image/x-icon><link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=/css/style.css><link rel=alternate type=application/rss+xml href=https://iforget.top/tags/workspace/index.xml title=淡忘起初><script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js></script></head><body><header id=header class=clearfix><div class=container><div class=col-group><div class=site-name><a id=logo href=https://iforget.top>淡忘起初</a><p class=description>I have a beautiful dream</p></div><div><nav id=nav-menu class=clearfix><a href=https://iforget.top>首页</a>
 <a href=https://iforget.top/reading/ title=阅读笔记>阅读笔记</a>
 <a href=https://iforget.top/life/ title=生活点滴>生活点滴</a>
 <a href=https://iforget.top/archives/ title=归档>归档</a>
-<a href=https://iforget.top/about/ title=关于>关于</a></nav></div></div></div></header><div id=body><div class=container><div class=col-group><div class=col-8 id=main><div class=res-cons><h3 class=archive-title><span>5</span>
-<span>5</span>
+<a href=https://iforget.top/about/ title=关于>关于</a></nav></div></div></div></header><div id=body><div class=container><div class=col-group><div class=col-8 id=main><div class=res-cons><h3 class=archive-title><span>3</span>
+<span>2</span>
+<span>2</span>
 <span>2</span>
 <span>2</span>
 <span>1</span>
@@ -14,11 +15,20 @@
 <span>1</span>
 <span>1</span>
 <span>1</span>
-<span class=keyword>数据库</span>
-中的文章</h3><article class=post><header><h1 class=post-title><a href=https://iforget.top/post/mysql-qas/>Mysql基础问答</a></h1></header><time datetime=2023-05-21T06:41:56Z class="post-meta meta-date dt-published">2023年5月21日</time><div class="post-meta meta-category"><span>&nbsp;|</span>
-<a href=/categories/%E6%95%B0%E6%8D%AE%E5%BA%93 target=_blank>数据库</a></div><div class=post-content>字符串数据类型 MySQL数据类型 长度 字节 最多字符数 char 固定长度 2^8-1(255) 2^8-1(255) varchar 可变长度 2^16-1(65535) 2^16-1(65535) tinytext 可变长度 2^8-1 2^8-1 text 可变长度 2^16-1 2^16-1 mediumtext 可变长度 2^24-1 2^24-1 longtext 可变长度 2^32-1 2^32-1 1.char(n) 和 varchar(n) 中括号中n代表 可储存字符个数，并不代表字节个数，所以当使用了中文的时候(UTF8)意味着可以插入m个中文，但是实际会占用m3个字节，m∗3&……
-           <p class=readmore><a href=https://iforget.top/post/mysql-qas/>阅读全文</a></p></div></article><article class=post><header><h1 class=post-title><a href=https://iforget.top/post/mysql8-error/>Mysql8认证方式调整</a></h1></header><time datetime=2023-04-18T12:24:58Z class="post-meta meta-date dt-published">2023年4月18日</time><div class="post-meta meta-category"><span>&nbsp;|</span>
-<a href=/categories/%E6%95%B0%E6%8D%AE%E5%BA%93 target=_blank>数据库</a></div><div class=post-content>错误信息 1 Authentication plugin 'caching_sha2_password' cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 2): image not found 原因 MySQL兼容问题，需要修改数据库的认证方式 MySQL8.0版本默认的认证方式是caching_sha2_password MySQL5.7版本则为mysql_native_password。 官方文档： https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password 借鉴文档： https://blog.51cto.com/fengfeng688/2147169 解决办法1 打开系统偏好设置，找……<p class=readmore><a href=https://iforget.top/post/mysql8-error/>阅读全文</a></p></div></article></div><footer id=footer><div>&copy; 2023 <a href=https://iforget.top>淡忘起初 By zaifeng</a></div></footer><a id=rocket href=#top></a>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span class=keyword>workspace</span>
+中的文章</h3><article class=post><header><h1 class=post-title><a href=https://iforget.top/post/go-workspace/>Go Workspace初试</a></h1></header><time datetime=2023-05-24T04:03:18Z class="post-meta meta-date dt-published">2023年5月24日</time><div class="post-meta meta-category"><span>&nbsp;|</span>
+<a href=/categories/golang target=_blank>golang</a></div><div class=post-content>​ 为了解决多个有依赖的Module本地同时开发的问题，Go 1.18引入了工作区模式。您可以将其视为一个项目文件夹，其中包含您的Go应用程序和依赖项。在Go Workspace中，您可以创建自己的包和库，或者使用其他人创建的包和库。通过设置Go Workspace，可以轻松地分享Go应……<p class=readmore><a href=https://iforget.top/post/go-workspace/>阅读全文</a></p></div></article></div><footer id=footer><div>&copy; 2023 <a href=https://iforget.top>淡忘起初 By zaifeng</a></div></footer><a id=rocket href=#top></a>
 <script type=text/javascript src='/js/totop.js?v=0.0.0' async></script>
 <script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async></script></div><div id=secondary><section class=widget><form id=search action=https://iforget.top/search method=get accept-charset=utf-8 target=_blank _lpchecked=1><input type=text name=q maxlength=20 placeholder=Search>
 <input type=hidden name=sitesearch value=https://iforget.top>
